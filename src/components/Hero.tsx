@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Tractor, TreePine, Globe, Chainsaw, Axe } from 'lucide-react';
+import { ChevronRight, Tractor, TreePine, Globe, Axe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
@@ -54,7 +54,7 @@ const Hero = () => {
                 </div>
                 
                 <div className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-milata-limeGreen/10 flex items-center justify-center border border-milata-limeGreen/30">
-                  <Chainsaw className="w-10 h-10 text-milata-limeGreen" rotate={45} />
+                  <Axe className="w-10 h-10 text-milata-limeGreen" />
                 </div>
                 
                 <div className="absolute top-1/2 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-milata-limeGreen/10 flex items-center justify-center border border-milata-limeGreen/30">

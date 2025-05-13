@@ -1,5 +1,5 @@
 
-import { Route, Snowflake, TreePine, Globe, Recycle, Construction, Chainsaw, Tractor, Axe } from 'lucide-react';
+import { Route, Snowflake, TreePine, Globe, Recycle, Construction, Tractor, Axe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -13,7 +13,7 @@ const Services = () => {
       description: t('roadMaintenanceDesc')
     },
     {
-      icon: <Chainsaw className="h-10 w-10 text-milata-limeGreen" />,
+      icon: <Axe className="h-10 w-10 text-milata-limeGreen" />,
       title: t('treeManagement'),
       description: t('treeManagementDesc')
     },
@@ -33,7 +33,7 @@ const Services = () => {
       description: t('roadwayRecyclingDesc')
     },
     {
-      icon: <Axe className="h-10 w-10 text-milata-limeGreen" />,
+      icon: <Construction className="h-10 w-10 text-milata-limeGreen" />,
       title: t('constructionPrep'),
       description: t('constructionPrepDesc')
     }

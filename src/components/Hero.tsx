@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Tractor, TreePine, Globe, Axe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -26,46 +27,29 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite text-lg px-6 py-6">
-                {t('exploreServices')}
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
+              <a href="tel:+420777919642" className="inline-block">
+                <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite text-lg px-6 py-6 w-full">
+                  {t('exploreServices')}
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
             </div>
           </div>
           
           <div className="lg:w-1/2 mt-12 lg:mt-0 flex justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
-              {/* Main Image/Graphic with Forest & Tech Theme */}
-              <div className="w-[500px] h-[400px] bg-gradient-to-br from-milata-darkGreyGreen/30 to-milata-darkGraphite rounded-xl glass-card p-6 flex items-center justify-center">
-                {/* Wood texture overlay */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDIwMHYyMDBIMHoiLz48cGF0aCBkPSJNMCAwQzUwIDI1IDUwIDc1IDAgMTAwYzUwIDI1IDUwIDc1IDAgMTAwaDIwMGMtNTAtMjUtNTAtNzUgMC0xMDBDMTUwIDc1IDE1MCAyNSAyMDAgMEgweiIgc3Ryb2tlPSIjNkI0RjNCIiBzdHJva2Utb3BhY2l0eT0iLjEiIHN0cm9rZS13aWR0aD0iLjUiLz48L2c+PC9zdmc+')] opacity-10 rounded-xl"></div>
+              {/* Tractor Image */}
+              <div className="w-[500px] h-[400px] rounded-xl overflow-hidden shadow-xl">
+                <img 
+                  src="/lovable-uploads/ba69f968-a5eb-4522-ad85-e601a0b4fe75.png" 
+                  alt="Modern Fendt tractor for land management" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-milata-darkGraphite/50 to-transparent pointer-events-none"></div>
                 
-                <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-milata-limeGreen/20 flex items-center justify-center">
-                  <Tractor className="w-12 h-12 text-milata-limeGreen" />
-                </div>
-                
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-milata-limeGreen/20 flex items-center justify-center">
-                  <TreePine className="w-12 h-12 text-milata-limeGreen" />
-                </div>
-                
-                <div className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-milata-limeGreen/10 flex items-center justify-center border border-milata-limeGreen/30">
-                  <Axe className="w-10 h-10 text-milata-limeGreen" />
-                </div>
-                
-                <div className="absolute top-1/2 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-milata-limeGreen/10 flex items-center justify-center border border-milata-limeGreen/30">
-                  <Axe className="w-10 h-10 text-milata-limeGreen" />
-                </div>
-                
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-milata-limeGreen/10 flex items-center justify-center border border-milata-limeGreen/30">
-                  <Globe className="w-16 h-16 text-milata-limeGreen" />
-                </div>
-                
-                {/* Tech grid lines */}
-                <div className="absolute inset-0 border border-milata-greyGreen/20 rounded-xl"></div>
-                <div className="absolute inset-8 border border-milata-greyGreen/10 rounded-lg"></div>
-                
-                {/* Animated pulse */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-milata-limeGreen/5 animate-pulse"></div>
+                {/* Decorative elements */}
+                <div className="absolute top-4 left-4 w-16 h-16 border border-milata-limeGreen/40 rounded-lg"></div>
+                <div className="absolute bottom-4 right-4 w-16 h-16 border border-milata-limeGreen/40 rounded-lg"></div>
               </div>
             </div>
           </div>

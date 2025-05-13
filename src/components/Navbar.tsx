@@ -82,7 +82,9 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
+              <a href="tel:+420777919642" className="inline-block">
+                <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
+              </a>
             </div>
           </div>
           
@@ -151,7 +153,9 @@ const Navbar = () => {
             </div>
             
             <div className="px-3 py-2">
-              <Button className="w-full bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
+              <a href="tel:+420777919642" className="block w-full">
+                <Button className="w-full bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
+              </a>
             </div>
           </div>
         </div>

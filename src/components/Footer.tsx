@@ -1,7 +1,10 @@
 
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -12,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="bg-milata-darkGraphite border-t border-milata-darkGreyGreen/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-6">
@@ -21,7 +24,7 @@ const Footer = () => {
             </div>
             
             <p className="text-milata-greyGreen mb-6">
-              Providing advanced technology solutions for road and land management with a focus on sustainability and innovation.
+              {t('companyDesc')}
             </p>
             
             <div className="flex space-x-4">
@@ -42,72 +45,47 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold text-milata-white mb-6">Our Services</h3>
+            <h3 className="text-lg font-semibold text-milata-white mb-6">{t('services')}</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Road & Highway Maintenance</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('roadMaintenance')}</a>
               </li>
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Tree Management & Forestry</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('treeManagement')}</a>
               </li>
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Snow Removal & Winter Services</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('snowRemoval')}</a>
               </li>
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Soil Stabilization</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('soilStabilization')}</a>
               </li>
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Roadway Recycling</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('roadwayRecycling')}</a>
               </li>
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Construction Preparation</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('constructionPrep')}</a>
               </li>
             </ul>
           </div>
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-milata-white mb-6">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-milata-white mb-6">{t('quickLinks')}</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#home" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Home</a>
+                <a href="#home" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('home')}</a>
               </li>
               <li>
-                <a href="#about" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">About Us</a>
+                <a href="#about" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('about')}</a>
               </li>
               <li>
-                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Services</a>
+                <a href="#services" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('services')}</a>
               </li>
               <li>
-                <a href="#projects" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Projects</a>
+                <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('careers')}</a>
               </li>
               <li>
-                <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Careers</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">Contact</a>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold text-milata-white mb-6">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-milata-limeGreen mr-3 mt-0.5" />
-                <span className="text-milata-greyGreen">
-                  123 Technology Drive, Suite 400<br />
-                  Business Park, NY 10001
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 text-milata-limeGreen mr-3" />
-                <span className="text-milata-greyGreen">+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 text-milata-limeGreen mr-3" />
-                <span className="text-milata-greyGreen">info@milatatechnology.com</span>
+                <a href="#contact" className="text-milata-greyGreen hover:text-milata-limeGreen transition-colors duration-200">{t('contact')}</a>
               </li>
             </ul>
           </div>
@@ -115,13 +93,13 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-milata-darkGreyGreen/20 flex flex-col md:flex-row justify-between items-center">
           <p className="text-milata-greyGreen text-sm">
-            &copy; {new Date().getFullYear()} MILATA TECHNOLOGY. All rights reserved.
+            &copy; {new Date().getFullYear()} MILATA TECHNOLOGY. {t('copyright')}
           </p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen text-sm transition-colors duration-200">Privacy Policy</a>
-            <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen text-sm transition-colors duration-200">Terms of Service</a>
-            <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen text-sm transition-colors duration-200">Cookie Policy</a>
+            <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen text-sm transition-colors duration-200">{t('privacyPolicy')}</a>
+            <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen text-sm transition-colors duration-200">{t('termsOfService')}</a>
+            <a href="#" className="text-milata-greyGreen hover:text-milata-limeGreen text-sm transition-colors duration-200">{t('cookiePolicy')}</a>
           </div>
           
           <button 

@@ -1,11 +1,19 @@
 
 import { useState } from 'react';
-import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleServices = () => setServicesOpen(!servicesOpen);
@@ -25,33 +33,56 @@ const Navbar = () => {
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
-              <a href="#home" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">Home</a>
+              <a href="#home" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">{t('home')}</a>
               
               <div className="relative">
                 <button 
                   onClick={toggleServices}
                   className="flex items-center text-milata-white hover:text-milata-limeGreen transition-colors duration-300"
                 >
-                  Services
+                  {t('services')}
                   {servicesOpen ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />}
                 </button>
                 
                 {servicesOpen && (
                   <div className="absolute z-10 mt-2 w-48 bg-milata-darkGreyGreen/90 backdrop-blur-md rounded-md shadow-lg py-1">
-                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">Road Maintenance</a>
-                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">Tree Management</a>
-                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">Soil Stabilization</a>
-                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">Roadway Recycling</a>
-                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">Construction Prep</a>
+                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">{t('roadMaintenance')}</a>
+                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">{t('treeManagement')}</a>
+                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">{t('soilStabilization')}</a>
+                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">{t('roadwayRecycling')}</a>
+                    <a href="#services" className="block px-4 py-2 text-sm text-milata-white hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen">{t('constructionPrep')}</a>
                   </div>
                 )}
               </div>
               
-              <a href="#about" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">About</a>
-              <a href="#projects" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">Projects</a>
-              <a href="#contact" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">Contact</a>
+              <a href="#about" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">{t('about')}</a>
+              <a href="#contact" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">{t('contact')}</a>
               
-              <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">Get a Quote</Button>
+              {/* Language Toggle */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center text-milata-white hover:text-milata-limeGreen transition-colors duration-300">
+                    <Languages className="h-5 w-5 mr-1" />
+                    <span className="uppercase">{language}</span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-milata-darkGreyGreen/90 backdrop-blur-md border-milata-greyGreen/20">
+                  <DropdownMenuItem 
+                    onClick={() => setLanguage('cz')}
+                    className={`${language === 'cz' ? 'text-milata-limeGreen' : 'text-milata-white'} hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen cursor-pointer`}
+                  >
+                    Česky
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => setLanguage('en')}
+                    className={`${language === 'en' ? 'text-milata-limeGreen' : 'text-milata-white'} hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen cursor-pointer`}
+                  >
+                    English
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
+              <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
             </div>
           </div>
           
@@ -70,34 +101,57 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-milata-darkGreyGreen/90 backdrop-blur-md">
-            <a href="#home" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">Home</a>
+            <a href="#home" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">{t('home')}</a>
             
             <div>
               <button 
                 onClick={toggleServices}
                 className="flex items-center w-full px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen"
               >
-                Services
+                {t('services')}
                 {servicesOpen ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />}
               </button>
               
               {servicesOpen && (
                 <div className="pl-6 space-y-1">
-                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">Road Maintenance</a>
-                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">Tree Management</a>
-                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">Soil Stabilization</a>
-                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">Roadway Recycling</a>
-                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">Construction Prep</a>
+                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">{t('roadMaintenance')}</a>
+                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">{t('treeManagement')}</a>
+                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">{t('soilStabilization')}</a>
+                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">{t('roadwayRecycling')}</a>
+                  <a href="#services" className="block px-3 py-1 text-sm text-milata-white hover:text-milata-limeGreen">{t('constructionPrep')}</a>
                 </div>
               )}
             </div>
             
-            <a href="#about" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">About</a>
-            <a href="#projects" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">Projects</a>
-            <a href="#contact" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">Contact</a>
+            <a href="#about" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">{t('about')}</a>
+            <a href="#contact" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">{t('contact')}</a>
+            
+            {/* Language Toggle - Mobile */}
+            <div className="px-3 py-2 flex space-x-3">
+              <button 
+                onClick={() => setLanguage('cz')} 
+                className={`px-3 py-1 rounded-full text-sm ${
+                  language === 'cz' 
+                    ? 'bg-milata-limeGreen text-milata-darkGraphite' 
+                    : 'bg-milata-darkGreyGreen/40 text-milata-white'
+                }`}
+              >
+                CZ
+              </button>
+              <button 
+                onClick={() => setLanguage('en')} 
+                className={`px-3 py-1 rounded-full text-sm ${
+                  language === 'en' 
+                    ? 'bg-milata-limeGreen text-milata-darkGraphite' 
+                    : 'bg-milata-darkGreyGreen/40 text-milata-white'
+                }`}
+              >
+                EN
+              </button>
+            </div>
             
             <div className="px-3 py-2">
-              <Button className="w-full bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">Get a Quote</Button>
+              <Button className="w-full bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Tractor, TreePine, Globe, Axe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -30,10 +29,6 @@ const Hero = () => {
               <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite text-lg px-6 py-6">
                 {t('exploreServices')}
                 <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-              
-              <Button variant="outline" className="border-milata-greyGreen text-milata-white hover:bg-milata-greyGreen/20 text-lg px-6 py-6">
-                {t('contactUs')}
               </Button>
             </div>
           </div>

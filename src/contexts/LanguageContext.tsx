@@ -17,7 +17,7 @@ const translations: Translations = {
   services: { en: 'Services', cz: 'Služby' },
   about: { en: 'About', cz: 'O nás' },
   contact: { en: 'Contact', cz: 'Kontakt' },
-  getQuote: { en: 'Get a Quote', cz: 'Získat nabídku' },
+  getQuote: { en: 'Get a Quote +420 777 919 642', cz: 'Získat nabídku +420 777 919 642' },
   
   // Hero
   heroTitle1: { en: 'Advanced Solutions for', cz: 'Pokročilá řešení pro' },
@@ -26,7 +26,7 @@ const translations: Translations = {
     en: 'Innovative technology and sustainable practices for highway maintenance, forestry management, and environmental stability.',
     cz: 'Inovativní technologie a udržitelné postupy pro údržbu silnic, lesní hospodářství a ekologickou stabilitu.'
   },
-  exploreServices: { en: 'Explore Services', cz: 'Prozkoumat služby' },
+  exploreServices: { en: 'Contact Us +420 777 919 642', cz: 'Kontaktujte nás +420 777 919 642' },
   contactUs: { en: 'Contact Us', cz: 'Kontaktujte nás' },
   yearsExp: { en: 'Years of Experience', cz: 'Let zkušeností' },
   projectsCompleted: { en: 'Projects Completed', cz: 'Dokončených projektů' },

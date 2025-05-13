@@ -1,6 +1,5 @@
 
 import { CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const About = () => {
   const advantages = [
@@ -73,10 +72,6 @@ const About = () => {
                 ))}
               </div>
             </div>
-            
-            <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">
-              Learn More About Us
-            </Button>
           </div>
         </div>
       </div>

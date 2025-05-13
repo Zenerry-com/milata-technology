@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Tractor, TreePine, Globe, Axe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -12,7 +13,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-milata-darkGraphite via-milata-darkGreyGreen/40 to-milata-darkGraphite z-0"></div>
       
       {/* Nature-inspired Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zOCAyMEw0MCA1TS0yMCAyMkwyMiAtMjBNNDAgMTVMMTUgNDBNNDAgMzBMMzAgNDBNMjAgMzVMMzUgMjBNMjUgMTBMMTAgMjVNMjAgMTBMMTAgMjBNMzAgNUw1IDMwTTM1IDE1TDE1IDM1IiBzdHJva2U9InJnYmEoMTUzLCAxNzUsIDE3NiwgMC4xNSkiIHN0cm9rZS13aWR0aD0iLjUiLz48L2c+PC9zdmc+')] opacity-5 z-0"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zOCAxMEw0MCA1TS0yMCAyMkwyMiAtMjBNNDAgMTVMMTUgNDBNNDAgMzBMMzAgNDBNMjAgMzVMMzUgMjBNMjUgMTBMMTAgMjVNMjAgMTBMMTAgMjBNMzAgNUw1IDMwTTM1IDE1TDE1IDM1IiBzdHJva2U9InJnYmEoMTUzLCAxNzUsIDE3NiwgMC4xNSkiIHN0cm9rZS13aWR0aD0iLjUiLz48L2c+PC9zdmc+')] opacity-5 z-0"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
@@ -29,7 +30,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="tel:+420777919642" className="inline-block">
                 <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite text-lg px-6 py-6 w-full">
-                  {t('exploreServices')}
+                  {t('contactUs')} +420 777 919 642
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
@@ -37,15 +38,19 @@ const Hero = () => {
           </div>
           
           <div className="lg:w-1/2 mt-12 lg:mt-0 flex justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <div className="relative">
-              {/* Tractor Image */}
-              <div className="w-[500px] h-[400px] rounded-xl overflow-hidden shadow-xl">
-                <img 
-                  src="/lovable-uploads/ba69f968-a5eb-4522-ad85-e601a0b4fe75.png" 
-                  alt="Modern Fendt tractor for land management" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-milata-darkGraphite/50 to-transparent pointer-events-none"></div>
+            <div className="relative w-full max-w-[500px]">
+              {/* Improved Tractor Image with Aspect Ratio */}
+              <div className="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
+                <AspectRatio ratio={16/12} className="bg-gradient-to-t from-milata-darkGreyGreen/30 to-transparent">
+                  <img 
+                    src="/lovable-uploads/ba69f968-a5eb-4522-ad85-e601a0b4fe75.png" 
+                    alt="Modern Fendt tractor for land management" 
+                    className="w-full h-full object-contain bg-gradient-to-b from-transparent via-milata-darkGreyGreen/10 to-milata-darkGraphite/80"
+                  />
+                </AspectRatio>
+
+                {/* Color transition overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-milata-darkGraphite via-milata-darkGreyGreen/30 to-transparent opacity-60 pointer-events-none"></div>
                 
                 {/* Decorative elements */}
                 <div className="absolute top-4 left-4 w-16 h-16 border border-milata-limeGreen/40 rounded-lg"></div>

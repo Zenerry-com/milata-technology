@@ -77,10 +77,12 @@ const About = () => {
               </h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
-                {displayAdvantages.map((advantage, index) => <div key={index} className="flex items-start">
+                {displayAdvantages.map((advantage, index) => (
+                  <div key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-milata-limeGreen mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-milata-white">{advantage}</span>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

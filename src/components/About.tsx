@@ -4,10 +4,24 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
   const { language, t } = useLanguage();
-  const advantages = ["Advanced machinery and specialized equipment", "Environmentally sustainable practices", "Experienced technical teams", "Innovative solutions for complex challenges", "Commitment to safety and quality", "Cost-effective operation approaches"];
+  const advantages = [
+    "Advanced machinery and specialized equipment",
+    "Environmentally sustainable practices", 
+    "Experienced technical teams", 
+    "Innovative solutions for complex challenges", 
+    "Commitment to safety and quality", 
+    "Cost-effective operation approaches"
+  ];
 
   // Czech version of advantages
-  const advantagesCz = ["Pokročilé stroje a specializované vybavení", "Ekologicky udržitelné postupy", "Zkušené technické týmy", "Inovativní řešení pro složité výzvy", "Závazek k bezpečnosti a kvalitě", "Nákladově efektivní provozní přístupy"];
+  const advantagesCz = [
+    "Pokročilé stroje a specializované vybavení", 
+    "Ekologicky udržitelné postupy", 
+    "Zkušené technické týmy", 
+    "Inovativní řešení pro složité výzvy", 
+    "Závazek k bezpečnosti a kvalitě", 
+    "Nákladově efektivní provozní přístupy"
+  ];
 
   // Choose which advantages to display based on language
   const displayAdvantages = language === 'cz' ? advantagesCz : advantages;
@@ -69,7 +83,7 @@ const About = () => {
             <p className="text-milata-greyGreen mb-8">
               {language === 'cz'
                 ? 'S odborností zahrnující údržbu silnic, správu lesů, stabilizaci půdy a přípravu staveb jsme se etablovali jako lídři v oboru, kteří se zavazují k bezpečnosti, kvalitě a udržitelnosti.'
-                : 'With expertise spanning road maintenance, forestry management, soil stabilization, and construction preparation, we've established ourselves as industry leaders committed to safety, quality, and sustainability.'}
+                : 'With expertise spanning road maintenance, forestry management, soil stabilization, and construction preparation, we\'ve established ourselves as industry leaders committed to safety, quality, and sustainability.'}
             </p>
             
             <div className="mb-8">

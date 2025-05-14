@@ -5,7 +5,6 @@ import Services from "@/components/Services";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Projects from "@/components/Projects";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -35,7 +34,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Services />
-      <Projects />
       <About />
       <Contact />
       <Footer />

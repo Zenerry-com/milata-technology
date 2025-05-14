@@ -1,6 +1,17 @@
+
 import { CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+
 const About = () => {
+  const { language, t } = useLanguage();
   const advantages = ["Advanced machinery and specialized equipment", "Environmentally sustainable practices", "Experienced technical teams", "Innovative solutions for complex challenges", "Commitment to safety and quality", "Cost-effective operation approaches"];
+
+  // Czech version of advantages
+  const advantagesCz = ["Pokročilé stroje a specializované vybavení", "Ekologicky udržitelné postupy", "Zkušené technické týmy", "Inovativní řešení pro složité výzvy", "Závazek k bezpečnosti a kvalitě", "Nákladově efektivní provozní přístupy"];
+
+  // Choose which advantages to display based on language
+  const displayAdvantages = language === 'cz' ? advantagesCz : advantages;
+
   return <section id="about" className="py-20 bg-milata-darkGreyGreen/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -18,7 +29,11 @@ const About = () => {
                     <div className="text-center p-8">
                       <div className="text-milata-limeGreen font-bold text-4xl mb-2">MILATA</div>
                       <div className="text-milata-white font-bold text-xl mb-4">TECHNOLOGY</div>
-                      <p className="text-milata-greyGreen">Innovative solutions for road & land management since 2008</p>
+                      <p className="text-milata-greyGreen">
+                        {language === 'cz' 
+                          ? 'Inovativní řešení pro správu silnic a pozemků od roku 2008'
+                          : 'Innovative solutions for road & land management since 2008'}
+                      </p>
                     </div>
                     
                     {/* Glowing elements */}
@@ -39,21 +54,30 @@ const About = () => {
           </div>
           
           <div className="lg:w-1/2">
-            <h2 className="section-heading">About <span className="text-milata-limeGreen">MILATA TECHNOLOGY</span></h2>
+            <h2 className="section-heading">
+              {language === 'cz' ? 'O ' : 'About '}
+              <span className="text-milata-limeGreen">MILATA TECHNOLOGY</span>
+            </h2>
             
             <p className="text-milata-greyGreen mb-6">
-              At MILATA TECHNOLOGY, we combine cutting-edge technological solutions with environmental responsibility to deliver exceptional road and land management services. Our comprehensive approach integrates advanced machinery with innovative techniques to solve complex infrastructure challenges.
+              {language === 'cz' 
+                ? 'Ve společnosti MILATA TECHNOLOGY kombinujeme špičková technologická řešení s ohledem na životní prostředí, abychom poskytovali výjimečné služby v oblasti správy silnic a pozemků. Náš komplexní přístup integruje pokročilé strojní zařízení s inovativními technikami pro řešení složitých infrastrukturních výzev.'
+                : 'At MILATA TECHNOLOGY, we combine cutting-edge technological solutions with environmental responsibility to deliver exceptional road and land management services. Our comprehensive approach integrates advanced machinery with innovative techniques to solve complex infrastructure challenges.'}
             </p>
             
             <p className="text-milata-greyGreen mb-8">
-              With expertise spanning road maintenance, forestry management, soil stabilization, and construction preparation, we've established ourselves as industry leaders committed to safety, quality, and sustainability.
+              {language === 'cz'
+                ? 'S odborností zahrnující údržbu silnic, správu lesů, stabilizaci půdy a přípravu staveb jsme se etablovali jako lídři v oboru, kteří se zavazují k bezpečnosti, kvalitě a udržitelnosti.'
+                : 'With expertise spanning road maintenance, forestry management, soil stabilization, and construction preparation, we've established ourselves as industry leaders committed to safety, quality, and sustainability.'}
             </p>
             
             <div className="mb-8">
-              <h3 className="text-xl font-semibold text-milata-white mb-4">Our Advantages</h3>
+              <h3 className="text-xl font-semibold text-milata-white mb-4">
+                {language === 'cz' ? 'Naše výhody' : 'Our Advantages'}
+              </h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
-                {advantages.map((advantage, index) => <div key={index} className="flex items-start">
+                {displayAdvantages.map((advantage, index) => <div key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-milata-limeGreen mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-milata-white">{advantage}</span>
                   </div>)}

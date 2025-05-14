@@ -1,18 +1,7 @@
-
 import { CheckCircle } from 'lucide-react';
-
 const About = () => {
-  const advantages = [
-    "Advanced machinery and specialized equipment",
-    "Environmentally sustainable practices",
-    "Experienced technical teams",
-    "Innovative solutions for complex challenges",
-    "Commitment to safety and quality",
-    "Cost-effective operation approaches"
-  ];
-
-  return (
-    <section id="about" className="py-20 bg-milata-darkGreyGreen/10">
+  const advantages = ["Advanced machinery and specialized equipment", "Environmentally sustainable practices", "Experienced technical teams", "Innovative solutions for complex challenges", "Commitment to safety and quality", "Cost-effective operation approaches"];
+  return <section id="about" className="py-20 bg-milata-darkGreyGreen/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
@@ -64,19 +53,15 @@ const About = () => {
               <h3 className="text-xl font-semibold text-milata-white mb-4">Our Advantages</h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
-                {advantages.map((advantage, index) => (
-                  <div key={index} className="flex items-start">
+                {advantages.map((advantage, index) => <div key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-milata-limeGreen mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-milata-white">{advantage}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;

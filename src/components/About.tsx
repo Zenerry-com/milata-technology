@@ -12,7 +12,8 @@ const About = () => {
   // Choose which advantages to display based on language
   const displayAdvantages = language === 'cz' ? advantagesCz : advantages;
 
-  return <section id="about" className="py-20 bg-milata-darkGreyGreen/10">
+  return (
+    <section id="about" className="py-20 bg-milata-darkGreyGreen/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
@@ -88,6 +89,8 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;

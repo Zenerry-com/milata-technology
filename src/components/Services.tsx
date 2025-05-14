@@ -2,9 +2,11 @@
 import { Route, Snowflake, TreePine, Globe, Recycle, Construction, Tractor, Axe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useState } from 'react';
 
 const Services = () => {
   const { t } = useLanguage();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   
   const services = [
     {
@@ -50,8 +52,8 @@ const Services = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="section-heading">{t('ourServices')} <span className="text-milata-limeGreen">{t('services2')}</span></h2>
-          <p className="text-milata-greyGreen max-w-2xl mx-auto text-lg">
+          <h2 className="section-heading animate-fade-in">{t('ourServices')} <span className="text-milata-limeGreen">{t('services2')}</span></h2>
+          <p className="text-milata-greyGreen max-w-2xl mx-auto text-lg animate-fade-in" style={{ animationDelay: '200ms' }}>
             {t('servicesDesc')}
           </p>
         </div>
@@ -60,16 +62,24 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="glass-card rounded-xl p-6 transition-all duration-300 hover:translate-y-[-8px] hover:border-milata-limeGreen/30 overflow-hidden relative"
+              className={`glass-card rounded-xl p-6 transition-all duration-500 hover:translate-y-[-8px] hover:border-milata-limeGreen/30 overflow-hidden relative ${
+                hoveredCard === index ? 'shadow-[0_0_20px_rgba(153,252,3,0.25)] border-milata-limeGreen/40' : ''
+              } animate-fade-in`}
+              style={{ animationDelay: `${index * 100}ms` }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Tech Grid Lines - Subtle background pattern */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNMCAwaDEwdjEwSDB6TTEwIDEwaDEwdjEwSDEwek0wIDIwaDEwdjEwSDB6TTIwIDBoMTB2MTBIMjB6TTEwIDIwaDEwdjEwSDEwek0zMCAxMGgxMHYxMEgzMHpNMjAgMjBoMTB2MTBIMjB6TTMwIDMwaDEwdjEwSDMwek0wIDMwaDEwdjEwSDB6TTIwIDMwaDEwdjEwSDIweiIgc3Ryb2tlPSIjNEE1QzVFIiBzdHJva2Utb3BhY2l0eT0iLjA1IiBzdHJva2Utd2lkdGg9Ii41Ii8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
               
-              <div className="bg-milata-darkGraphite p-4 inline-block rounded-lg mb-4 relative z-10">
+              <div className={`bg-milata-darkGraphite p-4 inline-block rounded-lg mb-4 relative z-10 transform transition-transform duration-500 ${hoveredCard === index ? 'scale-110 rotate-3' : ''}`}>
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold text-milata-white mb-3 relative z-10">{service.title}</h3>
+              <h3 className="text-xl font-semibold text-milata-white mb-3 relative z-10 transition-colors duration-300">{service.title}</h3>
               <p className="text-milata-greyGreen mb-4 relative z-10">{service.description}</p>
+              
+              {/* Animated glowing dot on hover */}
+              <div className={`absolute ${hoveredCard === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 bottom-3 right-3 w-2 h-2 bg-milata-limeGreen rounded-full animate-pulse`}></div>
             </div>
           ))}
         </div>

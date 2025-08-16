@@ -232,20 +232,20 @@ function updateLanguage(lang) {
         currentLangElement.textContent = lang.toUpperCase();
     }
     
-    // Update all elements with data-text attribute
-    const elementsToTranslate = document.querySelectorAll('[data-text]');
+    // Update all elements with data-en and data-cz attributes
+    const elementsToTranslate = document.querySelectorAll('[data-en], [data-cz]');
     elementsToTranslate.forEach(element => {
-        const key = element.getAttribute('data-text');
-        if (translations[key] && translations[key][lang]) {
-            element.textContent = translations[key][lang];
+        const translation = element.getAttribute('data-' + lang);
+        if (translation) {
+            element.textContent = translation;
         }
     });
 }
 
 function updateLanguageButtons() {
-    // Update mobile language buttons
-    const mobileLangButtons = document.querySelectorAll('.mobile-lang-btn');
-    mobileLangButtons.forEach(button => {
+    // Update language buttons
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(button => {
         const lang = button.getAttribute('onclick').includes('cz') ? 'cz' : 'en';
         if (lang === currentLanguage) {
             button.classList.add('active');

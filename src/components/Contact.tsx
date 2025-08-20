@@ -38,6 +38,7 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold text-milata-white mb-10 text-center">{t('contactInfo')}</h3>
             
             <div className="space-y-10">
+              {/* Accounting Section */}
               <div 
                 className={`flex items-start p-4 rounded-lg transition-all duration-300 ${hoveredItem === 0 ? 'bg-milata-darkGreyGreen/10' : ''}`}
                 onMouseEnter={() => setHoveredItem(0)}
@@ -47,22 +48,43 @@ const Contact = () => {
                   <Mail className={`h-7 w-7 text-milata-limeGreen transition-all duration-300 ${hoveredItem === 0 ? 'animate-pulse' : ''}`} />
                 </div>
                 <div>
-                  <h4 className="text-milata-white font-medium text-lg mb-2">{t('emailUs')}</h4>
-                  <p 
-                    className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
-                    onClick={() => copyToClipboard('info@milatatechnology.com', 'Email')}
-                  >
-                    info@milatatechnology.com {copied === 'Email' && <span className="text-milata-limeGreen text-sm ml-2">✓ Copied</span>}
-                  </p>
-                  <p 
-                    className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
-                    onClick={() => copyToClipboard('support@milatatechnology.com', 'Support email')}
-                  >
-                    support@milatatechnology.com {copied === 'Support email' && <span className="text-milata-limeGreen text-sm ml-2">✓ Copied</span>}
-                  </p>
+                  <h4 className="text-milata-white font-medium text-lg mb-4">{t('accountingTitle')}</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-milata-white font-medium">Radka Pišteková</p>
+                      <p 
+                        className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
+                        onClick={() => copyToClipboard('602 738 581', 'Phone')}
+                      >
+                        Tel. 602 738 581 {copied === 'Phone' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
+                      </p>
+                      <p 
+                        className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
+                        onClick={() => copyToClipboard('radka.pistekova@milatatechnology.cz', 'Email')}
+                      >
+                        radka.pistekova@milatatechnology.cz {copied === 'Email' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-milata-white font-medium">Ludmila Kubicová</p>
+                      <p 
+                        className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
+                        onClick={() => copyToClipboard('725 778 899', 'Phone2')}
+                      >
+                        Tel. 725 778 899 {copied === 'Phone2' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
+                      </p>
+                      <p 
+                        className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
+                        onClick={() => copyToClipboard('ludmila.kubicova@milatatechnology.cz', 'Email2')}
+                      >
+                        ludmila.kubicova@milatatechnology.cz {copied === 'Email2' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               
+              {/* Milling Section */}
               <div 
                 className={`flex items-start p-4 rounded-lg transition-all duration-300 ${hoveredItem === 1 ? 'bg-milata-darkGreyGreen/10' : ''}`}
                 onMouseEnter={() => setHoveredItem(1)}
@@ -72,19 +94,22 @@ const Contact = () => {
                   <Phone className={`h-7 w-7 text-milata-limeGreen transition-all duration-300 ${hoveredItem === 1 ? 'animate-pulse' : ''}`} />
                 </div>
                 <div>
-                  <h4 className="text-milata-white font-medium text-lg mb-2">{t('callUs')}</h4>
-                  <p 
-                    className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
-                    onClick={() => copyToClipboard('+1 (555) 123-4567', 'Phone number')}
-                  >
-                    +1 (555) 123-4567 {copied === 'Phone number' && <span className="text-milata-limeGreen text-sm ml-2">✓ Copied</span>}
-                  </p>
-                  <p 
-                    className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
-                    onClick={() => copyToClipboard('+1 (555) 765-4321', 'Alternative phone')}
-                  >
-                    +1 (555) 765-4321 {copied === 'Alternative phone' && <span className="text-milata-limeGreen text-sm ml-2">✓ Copied</span>}
-                  </p>
+                  <h4 className="text-milata-white font-medium text-lg mb-4">{t('millingTitle')}</h4>
+                  <div>
+                    <p className="text-milata-white font-medium">Marek Kubica</p>
+                    <p 
+                      className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
+                      onClick={() => copyToClipboard('725 785 185', 'Phone3')}
+                    >
+                      Tel. 725 785 185 {copied === 'Phone3' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
+                    </p>
+                    <p 
+                      className="text-milata-greyGreen text-lg cursor-pointer hover:text-milata-limeGreen/80 transition-colors"
+                      onClick={() => copyToClipboard('marek.kubica@milatatechnology.cz', 'Email3')}
+                    >
+                      marek.kubica@milatatechnology.cz {copied === 'Email3' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
+                    </p>
+                  </div>
                 </div>
               </div>
               
@@ -105,7 +130,7 @@ const Contact = () => {
                     123 Technology Drive<br />
                     Suite 400<br />
                     Business Park, NY 10001
-                    {copied === 'Address' && <span className="text-milata-limeGreen text-sm ml-2">✓ Copied</span>}
+                    {copied === 'Address' && <span className="text-milata-limeGreen text-sm ml-2">✓ Zkopírováno</span>}
                   </p>
                 </div>
               </div>

@@ -1,19 +1,13 @@
 
 import { useState } from 'react';
-import { Menu, X, ChevronDown, ChevronUp, Languages } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleServices = () => setServicesOpen(!servicesOpen);
@@ -57,30 +51,6 @@ const Navbar = () => {
               
               <a href="#about" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">{t('about')}</a>
               <a href="#contact" className="text-milata-white hover:text-milata-limeGreen transition-colors duration-300">{t('contact')}</a>
-              
-              {/* Language Toggle */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button className="flex items-center text-milata-white hover:text-milata-limeGreen transition-colors duration-300">
-                    <Languages className="h-5 w-5 mr-1" />
-                    <span className="uppercase">{language}</span>
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-milata-darkGreyGreen/90 backdrop-blur-md border-milata-greyGreen/20">
-                  <DropdownMenuItem 
-                    onClick={() => setLanguage('cz')}
-                    className={`${language === 'cz' ? 'text-milata-limeGreen' : 'text-milata-white'} hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen cursor-pointer`}
-                  >
-                    Česky
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => setLanguage('en')}
-                    className={`${language === 'en' ? 'text-milata-limeGreen' : 'text-milata-white'} hover:bg-milata-limeGreen/20 hover:text-milata-limeGreen cursor-pointer`}
-                  >
-                    English
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
               
               <a href="tel:+420777919642" className="inline-block">
                 <Button className="bg-milata-limeGreen hover:bg-milata-limeGreen/80 text-milata-darkGraphite font-medium">{t('getQuote')}</Button>
@@ -127,30 +97,6 @@ const Navbar = () => {
             
             <a href="#about" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">{t('about')}</a>
             <a href="#contact" className="block px-3 py-2 text-base font-medium text-milata-white hover:text-milata-limeGreen">{t('contact')}</a>
-            
-            {/* Language Toggle - Mobile */}
-            <div className="px-3 py-2 flex space-x-3">
-              <button 
-                onClick={() => setLanguage('cz')} 
-                className={`px-3 py-1 rounded-full text-sm ${
-                  language === 'cz' 
-                    ? 'bg-milata-limeGreen text-milata-darkGraphite' 
-                    : 'bg-milata-darkGreyGreen/40 text-milata-white'
-                }`}
-              >
-                CZ
-              </button>
-              <button 
-                onClick={() => setLanguage('en')} 
-                className={`px-3 py-1 rounded-full text-sm ${
-                  language === 'en' 
-                    ? 'bg-milata-limeGreen text-milata-darkGraphite' 
-                    : 'bg-milata-darkGreyGreen/40 text-milata-white'
-                }`}
-              >
-                EN
-              </button>
-            </div>
             
             <div className="px-3 py-2">
               <a href="tel:+420777919642" className="block w-full">
